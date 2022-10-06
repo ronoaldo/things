@@ -5,7 +5,7 @@ nblades = 5;
 r = 12.6;
 
 // Height of all blades (mm)
-h = 120.0;
+h = 140.0;
 
 /* [Advanced] */
 // Delta between bottom and top of blade radius (mm)
@@ -43,7 +43,7 @@ module blade(height, r1, r2, thickness, fillTop=false) {
 }
 
 module handle() {
-    $fn=40;
+    $fn=60;
     
     height = rounded ? h-1 : h;
     r1 = r + ht;
@@ -85,11 +85,12 @@ module handle() {
             }
         }
         translate([0, 0, -1])
-            cylinder(height+2, r1-ht+tolerance+1, r2-ht+tolerance+1);
+            cylinder(height+2, r1-ht+tolerance+0.5, r2-ht+tolerance+0.5);
     }
 }
 
 module handleLid(r) {
+    $fn = 80;
     r1 = r + ht;
     
     color("gray")
