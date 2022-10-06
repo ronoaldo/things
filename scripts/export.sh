@@ -5,6 +5,7 @@ JOBS=""
 export_png() {
     echo "Generating preview for $scad ..."
     openscad \
+        --enable sort-stl \
         --autocenter --viewall \
         --colorscheme Metallic \
         --render \
@@ -16,7 +17,9 @@ export_png() {
 
 export_stl() {
     echo "Generating preview for $scad ..."
-    openscad -o ${1/.scad/.stl} $1 &
+    openscad \
+        --enable sort-stl \
+        -o ${1/.scad/.stl} $1 &
     JOB=$!
     echo "Job started with PID: $JOB"
     export JOBS="$JOBS $JOB"
