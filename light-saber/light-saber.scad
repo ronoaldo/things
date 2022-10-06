@@ -1,3 +1,6 @@
+include <../third_party/BOSL2/std.scad>
+include <../third_party/BOSL2/threading.scad>
+
 // Number of blades
 nblades = 5;
 
@@ -9,7 +12,7 @@ h = 140.0;
 
 /* [Advanced] */
 // Delta between bottom and top of blade radius (mm)
-delta = 1.4;
+delta = 1.3;
 // Thickness of each blade (mm)
 t = 0.8;
 // Thickness of the handle (mm)
@@ -48,41 +51,47 @@ module handle() {
     height = rounded ? h-1 : h;
     r1 = r + ht;
     r2 = r1-delta;
+    d1 = 2*r1;
+    d2 = 2*r2;
     
     color("gray")
     translate([0, 0, rounded ? 0.5 : 0])
     difference() {
-        minkowski() {
-            union() {
-                // Base
-                cylinder(height, r1, r1);
-                
-                // Bottom
-                translate([0, 0, 4]) cylinder(5, r1, r1+4);
-                translate([0, 0, 9]) cylinder(5, r1+4, r1+3);
-                translate([0, 0, 14]) cylinder(3, r1+3, r1);
-                
-                // Middle
-                for(i=[0: 6: 32]) {
-                    translate([0, 0, height-30-i]) cylinder(3, r1+2, r1);
-                    translate([0, 0, height-33-i]) cylinder(3, r1, r1+2);
+        union() {
+            minkowski() {
+                union() {
+                    // Base
+                    cylinder(height, r1, r1);
+                    
+                    // Bottom
+                    translate([0, 0, 8]) cylinder(5, r1, r1+4);
+                    translate([0, 0, 13]) cylinder(5, r1+4, r1+3);
+                    translate([0, 0, 18]) cylinder(3, r1+3, r1);
+                    
+                    // Middle
+                    for(i=[0: 6: 32]) {
+                        translate([0, 0, height-30-i]) cylinder(3, r1+2, r1);
+                        translate([0, 0, height-33-i]) cylinder(3, r1, r1+2);
+                    }
+                    difference() {
+                        translate([r-4, -5, height-85]) cube([8, 10, 20]);
+                        translate([r+4, -5, height-72])
+                            rotate([0, -45, 0])
+                            cube([8, 10, 20]);
+                    }
+                    
+                    // Top
+                    translate([0, 0, height- 5.0]) cylinder(5, r1+4, r1+4);
+                    translate([0, 0, height- 8.0]) cylinder(3, r1+2, r1+4);
+                    translate([0, 0, height-14.0]) cylinder(6, r1+2, r1+2);
+                    translate([0, 0, height-16.0]) cylinder(2, r1, r1+2);
                 }
-                difference() {
-                    translate([r-4, -5, 35]) cube([8, 10, 20]);
-                    translate([r+4, -5, 50])
-                        rotate([0, -45, 0])
-                        cube([8, 10, 20]);
+                if (rounded) {
+                    sphere(0.5, $fn=12);
                 }
-                
-                // Top
-                translate([0, 0, height- 5.0]) cylinder(5, r1+4, r1+4);
-                translate([0, 0, height- 8.0]) cylinder(3, r1+2, r1+4);
-                translate([0, 0, height-14.0]) cylinder(6, r1+2, r1+2);
-                translate([0, 0, height-16.0]) cylinder(2, r1, r1+2);
             }
-            if (rounded) {
-                sphere(0.5, $fn=12);
-            }
+            translate([0, 0, 3])
+                threaded_rod(d=[d1+1, d1+2, d1+3], l=6, pitch=6);
         }
         translate([0, 0, -1])
             cylinder(height+2, r1-ht+tolerance+0.5, r2-ht+tolerance+0.5);
@@ -92,6 +101,7 @@ module handle() {
 module handleLid(r) {
     $fn = 80;
     r1 = r + ht;
+    d1 = 2*r1;
     
     color("gray")
     translate([expand ? 0 : 4*r, 0, 0])
@@ -100,10 +110,13 @@ module handleLid(r) {
         
         translate([0, 0, 1.1])
         cylinder(7, r1+0.8, r1+0.8);
+        
+        translate([0, 0, 5.01])
+            threaded_rod(d=[d1+1, d1+2, d1+3], l=6, pitch=6, internal=true);
     }
 }
 
-function m(n) = expand ? (n<0 ? 0 : n) : 0;
+function m(n) =  n<0 ? 0 : (1-2*abs($t-0.5))*n;
 
 module rotateToPrint() {
     vec = expand ? [0, 0, 0] : [180, 0, 0];
@@ -131,7 +144,7 @@ difference() {
     
     // Cut in half to see the internals
     if (previewInside) {
-        translate([0, -100, -1])
-        cube([200, 200, (nblades+2)*h]);
+        translate([0, -100, -600])
+        cube([200, 200, (nblades+2)*h+600]);
     }
 }

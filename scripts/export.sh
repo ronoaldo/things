@@ -25,7 +25,7 @@ export_stl() {
     export JOBS="$JOBS $JOB"
 }
 
-FILES="${FILES:-$(find -type f -iname *.scad)}"
+FILES="${FILES:-$(find -type f -iname *.scad | grep -v third_party)}"
 for scad in $FILES ; do
     export_png "$scad"
     export_stl "$scad"
