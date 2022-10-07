@@ -12,7 +12,7 @@ h = 140.0;
 
 /* [Advanced] */
 // Delta between bottom and top of blade radius (mm)
-delta = 1.3;
+delta = 1.6;
 // Thickness of each blade (mm)
 t = 0.8;
 // Thickness of the handle (mm)
@@ -40,7 +40,7 @@ module blade(height, r1, r2, thickness, fillTop=false) {
             cylinder(h=height+2, r1=r1-thickness, r2=r2-thickness);
     }
     if(fillTop) {
-        translate([0, 0, h-thickness])
+        translate([0, 0, height-thickness])
             cylinder(h=thickness, r1=r2, r2=r2);
     }
 }
@@ -91,7 +91,7 @@ module handle() {
                 }
             }
             translate([0, 0, 3])
-                threaded_rod(d=[d1+1, d1+2, d1+3], l=6, pitch=6);
+                threaded_rod(d=[d1, d1+2, d1+2], l=6, pitch=6);
         }
         translate([0, 0, -1])
             cylinder(height+2, r1-ht+tolerance+0.5, r2-ht+tolerance+0.5);
@@ -104,15 +104,15 @@ module handleLid(r) {
     d1 = 2*r1;
     
     color("gray")
-    translate([expand ? 0 : 4*r, 0, 0])
+    translate( expand ? [0, 0, -1.5] : [0, 4*r, 0])
     difference() {
         cylinder(8, r1+2.5, r1+2.9);
         
         translate([0, 0, 1.1])
-        cylinder(7, r1+0.8, r1+0.8);
+        cylinder(7, r1+1, r1+1);
         
         translate([0, 0, 5.01])
-            threaded_rod(d=[d1+1, d1+2, d1+3], l=6, pitch=6, internal=true);
+            threaded_rod(d=[d1+1, d1+3, d1+3], l=6, pitch=6, internal=true);
     }
 }
 
