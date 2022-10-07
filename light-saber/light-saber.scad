@@ -33,15 +33,18 @@ bladePreviewOffset = 20;
 module blade(height, r1, r2, thickness, fillTop=false) {
     $fn=60;
     
-    echo("Creating blade with", height, r1, r2, thickness, fillTop);
+    topHeight = 2;
+    bh = fillTop ? height - topHeight : height;
+
+    echo("Creating blade with", bh, r1, r2, thickness, fillTop);
     difference() {
-        cylinder(h=height, r1=r1, r2=r2);
+        cylinder(h=bh, r1=r1, r2=r2);
         translate([0, 0, -1])
-            cylinder(h=height+2, r1=r1-thickness, r2=r2-thickness);
+            cylinder(h=bh+2, r1=r1-thickness, r2=r2-thickness);
     }
     if(fillTop) {
-        translate([0, 0, height-thickness])
-            cylinder(h=thickness, r1=r2, r2=r2);
+        translate([0, 0, height-topHeight])
+            cylinder(h=topHeight, r1=r2, r2=r2*0.6);
     }
 }
 
