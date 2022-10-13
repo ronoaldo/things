@@ -5,20 +5,20 @@ include <../third_party/BOSL2/threading.scad>
 nblades = 5;
 
 // Starting blade bottom radius (mm)
-r = 12.6;
+r = 14.6;
 
 // Height of all blades (mm)
-h = 140.0;
+h = 138.0;
 
 /* [Advanced] */
 // Delta between bottom and top of blade radius (mm)
-delta = 1.6;
+delta = 1.4;
 // Thickness of each blade (mm)
 t = 0.8;
 // Thickness of the handle (mm)
-ht = 3;
+ht = 2.2;
 // Tolerance between blades (mm)
-tolerance = 0.4;
+tolerance = 0.6;
 // If the handle should have edges rounded (recommended)
 rounded = true;
 
@@ -33,7 +33,7 @@ bladePreviewOffset = 20;
 module blade(height, r1, r2, thickness, fillTop=false) {
     $fn=60;
     
-    topHeight = 2;
+    topHeight = 4;
     bh = fillTop ? height - topHeight : height;
 
     echo("Creating blade with", bh, r1, r2, thickness, fillTop);
@@ -57,7 +57,7 @@ module handle() {
     d1 = 2*r1;
     d2 = 2*r2;
     
-    color("gray")
+    //color("gray")
     translate([0, 0, rounded ? 0.5 : 0])
     difference() {
         union() {
@@ -76,9 +76,10 @@ module handle() {
                         translate([0, 0, height-30-i]) cylinder(3, r1+2, r1);
                         translate([0, 0, height-33-i]) cylinder(3, r1, r1+2);
                     }
+                    // Button
                     difference() {
-                        translate([r-4, -5, height-85]) cube([8, 10, 20]);
-                        translate([r+4, -5, height-72])
+                        translate([r-4, -5, height-85]) cube([9, 10, 20]);
+                        translate([r+8, -5, height-72])
                             rotate([0, -45, 0])
                             cube([8, 10, 20]);
                     }
@@ -105,11 +106,12 @@ module handleLid(r) {
     $fn = 80;
     r1 = r + ht;
     d1 = 2*r1;
+    lidThickness = 3.2;
     
-    color("gray")
+    //color("gray")
     translate( expand ? [0, 0, -1.5] : [0, 4*r, 0])
     difference() {
-        cylinder(8, r1+2.5, r1+2.9);
+        cylinder(8, r1+lidThickness, r1+lidThickness+1);
         
         translate([0, 0, 1.1])
         cylinder(7, r1+1, r1+1);
@@ -137,7 +139,7 @@ difference() {
         for (i = [0 : nblades-1]) {
             let (r1 = r-(i*delta)-(i*tolerance), r2 = r1-delta) {
                 translate([0, 0, m(i+1)*(h - bladePreviewOffset)])
-                color("lightgreen")
+                //color("lightgreen")
                 blade(h, r1, r2, t, (i==nblades-1? true : false) );
             }
         }
