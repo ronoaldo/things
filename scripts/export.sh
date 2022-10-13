@@ -16,7 +16,7 @@ export_png() {
 }
 
 export_stl() {
-    echo "Generating preview for $scad ..."
+    echo "Generating default printable part for $scad ..."
     openscad \
         --enable sort-stl \
         -o ${1/.scad/.stl} $1 &
@@ -25,7 +25,7 @@ export_stl() {
     export JOBS="$JOBS $JOB"
 }
 
-FILES="${FILES:-$(find -type f -iname *.scad | grep -v third_party)}"
+FILES="${@:-$(find -type f -iname *.scad | grep -v third_party)}"
 for scad in $FILES ; do
     export_png "$scad"
     export_stl "$scad"

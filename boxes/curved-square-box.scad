@@ -6,6 +6,7 @@ difference() {
     linear_extrude(height=boxSize, center=false, convexity=30, twist=15, slices=200)
     square(boxSize);
     // Inner box
+    rotate([0, 0, -thickness*(15/boxSize)])
     translate([0, 0, thickness])
     linear_extrude(height=boxSize, center=false, convexity=30, twist=15, slices=200)
     translate([thickness, thickness, 0])
