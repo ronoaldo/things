@@ -2,7 +2,7 @@ include <../third_party/BOSL2/std.scad>
 include <../third_party/BOSL2/threading.scad>
 
 // Number of blades
-nblades = 5;
+nblades = 6;
 
 // Starting blade bottom radius (mm)
 r = 14.6;
@@ -33,7 +33,7 @@ bladePreviewOffset = 20;
 module blade(height, r1, r2, thickness, fillTop=false) {
     $fn=60;
     
-    topHeight = 4;
+    topHeight = 2;
     bh = fillTop ? height - topHeight : height;
 
     echo("Creating blade with", bh, r1, r2, thickness, fillTop);
@@ -44,7 +44,7 @@ module blade(height, r1, r2, thickness, fillTop=false) {
     }
     if(fillTop) {
         translate([0, 0, height-topHeight])
-            cylinder(h=topHeight, r1=r2, r2=r2*0.6);
+            cylinder(h=topHeight, r1=r2, r2=r2-0.5);
     }
 }
 
@@ -72,9 +72,9 @@ module handle() {
                     translate([0, 0, 18]) cylinder(3, r1+3, r1);
                     
                     // Middle
-                    for(i=[0: 6: 32]) {
-                        translate([0, 0, height-30-i]) cylinder(3, r1+2, r1);
-                        translate([0, 0, height-33-i]) cylinder(3, r1, r1+2);
+                    for(i=[0: 4: 24]) {
+                        translate([0, 0, height-30-i]) cylinder(2, r1+2, r1);
+                        translate([0, 0, height-32-i]) cylinder(2, r1, r1+2);
                     }
                     // Button
                     difference() {
