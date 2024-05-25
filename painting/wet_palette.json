@@ -1,0 +1,12 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "depth": "100",
+            "height": "10",
+            "preview": "true",
+            "thickness": "1.3",
+            "width": "120"
+        }
+    }
+}
