@@ -1,0 +1,21 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "90x100x270mm": {
+            "depth": "270",
+            "height": "100",
+            "wall": "2",
+            "width": "90"
+        },
+        "90x100x140mm": {
+            "depth": "140",
+            "height": "100",
+            "width": "90"
+        },
+        "90x50x140mm": {
+            "depth": "140",
+            "height": "50",
+            "width": "90"
+        }
+    }
+}

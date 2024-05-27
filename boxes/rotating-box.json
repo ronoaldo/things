@@ -1,11 +1,17 @@
 {
     "fileFormatVersion": "1",
     "parameterSets": {
-        "140mm Squared": {
+        "140x120mm": {
             "boxHeight": "140",
             "boxSize": "120",
-            "rotation": "15",
+            "rotation": "90",
             "thickness": "3"
+        },
+        "100x135mm": {
+            "boxHeight": "135",
+            "boxSize": "100",
+            "rotation": "90",
+            "thickness": "2"
         }
     }
 }
