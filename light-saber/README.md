@@ -2,7 +2,7 @@
 
 This is my implementation of a customizable and collapsible Light Saber, that can be printed in a single go and assembled easily.
 
-![light-saber.scad.png](./light-saber.scad.png)
+![light-saber.png](./light-saber.png)
 
 Due to how the layers are printed in the saber blades, they are not very strong specially if kids play with them *for real*, and after a few fights it may break. You can reprint only one part of the model with the split function from Mesh Tools cura plugin.
 

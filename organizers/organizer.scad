@@ -7,7 +7,7 @@ height = 100;
 depth = 270;
 
 // Wall thickness (mm)
-wall = 2;
+wall = 3;
 
 /** [Hidden] **/
 handle_height = 25;
