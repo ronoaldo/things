@@ -95,7 +95,7 @@ module handle() {
                 }
             }
             translate([0, 0, 3])
-                threaded_rod(d=[d1, d1+2, d1+2], l=6, pitch=6);
+                threaded_rod(d=[d1, d1+2, d1+2], l=6, pitch=6, blunt_start=false);
         }
         translate([0, 0, -1])
             cylinder(height+2, r1-ht+tolerance+0.5, r2-ht+tolerance+0.5);
@@ -117,7 +117,7 @@ module handleLid(r) {
         cylinder(7, r1+1, r1+1);
         
         translate([0, 0, 5.01])
-            threaded_rod(d=[d1+1, d1+3, d1+3], l=6, pitch=6, internal=true);
+            threaded_rod(d=[d1+1, d1+3, d1+3], l=6, pitch=6, blunt_start=false, internal=true);
     }
 }
 
