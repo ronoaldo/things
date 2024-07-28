@@ -1,0 +1,17 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "30x20mm(2.0mm)": {
+            "height": "20",
+            "inner_diameter": "30",
+            "thickness": "2",
+            "top_cut": "true"
+        },
+        "27x20mm(3.2mm)": {
+            "height": "20",
+            "inner_diameter": "27",
+            "thickness": "3.2",
+            "top_cut": "true"
+        }
+    }
+}

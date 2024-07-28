@@ -2,13 +2,13 @@
 // Internal diameter for the holder
 inner_diameter = 27;
 // The thickness of the outer wall
-thickness = 1.2;
+thickness = 2;
 // The total height of the holder
 height = 20;
 // If we must cut at "top" of the circle, to facilitate passing objects over it
 top_cut = true;
 
-$fn=128;
+$fn = 64;
 
 module circular_mount() {
     difference() {
@@ -24,5 +24,4 @@ module circular_mount() {
     }
 }
 
-color("white")
 circular_mount();

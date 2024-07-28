@@ -79,8 +79,12 @@ View [model STL file](./light-saber/light-saber.stl)
 
 ## Wall bracket
 ---
-![./wall-bracket/circular-wall-bracket.png](./wall-bracket/circular-wall-bracket.png)
-View [model STL file](./wall-bracket/circular-wall-bracket.stl)
+![./wall-bracket/circular-wall-bracket_30x20mm(2.0mm).png](./wall-bracket/circular-wall-bracket_30x20mm(2.0mm).png)
+View [model STL file](./wall-bracket/circular-wall-bracket_30x20mm(2.0mm).stl)
+
+---
+![./wall-bracket/circular-wall-bracket_27x20mm(3.2mm).png](./wall-bracket/circular-wall-bracket_27x20mm(3.2mm).png)
+View [model STL file](./wall-bracket/circular-wall-bracket_27x20mm(3.2mm).stl)
 
 ---
 ![./wall-bracket/wall-bracket.png](./wall-bracket/wall-bracket.png)
