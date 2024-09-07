@@ -63,8 +63,20 @@ View [model STL file](./painting/wet_palette.stl)
 View [model STL file](./organizers/organizer_90x100x140mm.stl)
 
 ---
-![./organizers/organizer_90x50x140mm.png](./organizers/organizer_90x50x140mm.png)
-View [model STL file](./organizers/organizer_90x50x140mm.stl)
+![./organizers/organizer_90x50x140mm_nohandle.png](./organizers/organizer_90x50x140mm_nohandle.png)
+View [model STL file](./organizers/organizer_90x50x140mm_nohandle.stl)
+
+---
+![./organizers/organizer_90x100x270mm_nonstackable.png](./organizers/organizer_90x100x270mm_nonstackable.png)
+View [model STL file](./organizers/organizer_90x100x270mm_nonstackable.stl)
+
+---
+![./organizers/organizer_90x50x140mm_nonstackable.png](./organizers/organizer_90x50x140mm_nonstackable.png)
+View [model STL file](./organizers/organizer_90x50x140mm_nonstackable.stl)
+
+---
+![./organizers/organizer_90x100x140mm_nonstackable.png](./organizers/organizer_90x100x140mm_nonstackable.png)
+View [model STL file](./organizers/organizer_90x100x140mm_nonstackable.stl)
 
 ---
 ![./organizers/organizer_90x100x270mm.png](./organizers/organizer_90x100x270mm.png)

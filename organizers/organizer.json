@@ -10,11 +10,32 @@
         "90x100x140mm": {
             "depth": "140",
             "height": "100",
+            "wall": "4",
             "width": "90"
         },
-        "90x50x140mm": {
+        "90x50x140mm_nohandle": {
             "depth": "140",
             "height": "50",
+            "no_handle": "true",
+            "width": "90"
+        },
+        "90x100x270mm_nonstackable": {
+            "depth": "270",
+            "height": "100",
+            "stackable": "false",
+            "wall": "3",
+            "width": "90"
+        },
+        "90x100x140mm_nonstackable": {
+            "depth": "140",
+            "height": "100",
+            "stackable": "false",
+            "width": "90"
+        },
+        "90x50x140mm_nonstackable": {
+            "depth": "140",
+            "height": "50",
+            "stackable": "false",
             "width": "90"
         }
     }

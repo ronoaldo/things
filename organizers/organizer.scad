@@ -9,11 +9,18 @@ depth = 270;
 // Wall thickness (mm)
 wall = 3;
 
+// Add a top contour to stack boxes
+stackable = true;
+
+// No handle hole
+no_handle = false;
+
 /** [Hidden] **/
 handle_height = 25;
 handle_margin = 8;
 handle_width = width - handle_margin*2 - handle_height;
 corner_width = 2;
+tollerance = 0.4;
 
 module handle(width, depth, height) {
     offset_x = handle_height/2 + handle_margin;
@@ -88,22 +95,77 @@ module filleted_cube(width, depth, height) {
     }
 }
 
+module stackable_top() {
+    delta = 2*wall;
+    delta_cut = delta - 2*tollerance;
+    
+    w = width + delta;
+    d = depth + delta;
+    h = 5;
+    
+    scalex = w/width;
+    scaley = d/depth;
+    
+    union() {
+        // Add a top border
+        if(true){
+        difference() {
+            // +Outer
+            filleted_cube(w, d, h);
+            // -Inner (Cut hole)
+            translate([delta_cut/2, delta_cut/2, -1])
+                filleted_cube(w-delta_cut, d-delta_cut, h + 2*corner_width);
+        }
+        }
+        
+        // Connect the top border with the box
+        if(true){
+        difference() {
+            union() {
+                // Cover the top box surface
+                translate([wall, wall, -h/2])
+                    cube([width, depth, h/2]);
+                // Add a corner to connect with the base box
+                translate([width/2+wall, depth/2+wall, -h/2+corner_width/2+0.2])
+                linear_extrude(height=h, center=true, convexity=10, twist=0, scale=[scalex,scaley])
+                translate([-width/2, -depth/2, 0])
+                    projection() filleted_cube(width, depth, height);
+            }
+            // Cut again the inner box^
+            translate([delta/2+wall, delta/2+wall, -h])
+                filleted_cube(width-2*wall, depth-2*wall, height-wall+corner_width);
+        }
+        }
+    }
+}
+
 module box(width, depth, height) {
     delta = 2*wall;
     difference() {
         difference() {
-            // Outer
+            // +Outer
             filleted_cube(width, depth, height);
             // -Inner
             translate([wall, wall, wall])
                 filleted_cube(width-delta, depth-delta, height-wall+corner_width);
         }
         // -Handle
-        handle(width, depth, height);
-        // Decoration
+        if (!no_handle) {
+            handle(width, depth, height);
+        }
+        // -Decoration
         decoration(width, depth, height);
     }
 }
 
 echo("Generating box", width, "x", height, "x", depth, "\n");
-box(width, depth, height);
+difference() {
+    union() {
+        if (stackable) {
+            translate([-wall, -wall, height])
+                stackable_top();
+        }
+        box(width, depth, height);
+    }
+    // translate([width/2, -depth/2, -height/2]) cube([width*2, depth*2, height*2]);
+}
