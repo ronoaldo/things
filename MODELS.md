@@ -6,6 +6,7 @@
 1. [Boxes](#boxes)
 1. [Painting](#painting)
 1. [Organizers](#organizers)
+1. [Lamp diffuser](#lamp-diffuser)
 1. [Light saber](#light-saber)
 1. [Wall bracket](#wall-bracket)
 
@@ -81,6 +82,12 @@ View [model STL file](./organizers/organizer_90x100x140mm_nonstackable.stl)
 ---
 ![./organizers/organizer_90x100x270mm.png](./organizers/organizer_90x100x270mm.png)
 View [model STL file](./organizers/organizer_90x100x270mm.stl)
+
+
+## Lamp diffuser
+---
+![./lamp-diffuser/lamp-diffuser.png](./lamp-diffuser/lamp-diffuser.png)
+View [model STL file](./lamp-diffuser/lamp-diffuser.stl)
 
 
 ## Light saber
