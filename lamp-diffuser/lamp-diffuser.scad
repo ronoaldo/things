@@ -21,7 +21,7 @@ module mount_clip() {
         cylinder(
             h=border+1,
             r=hole);
-        translate([-cut_x/2, 0.55*hole, -0.5])
+        translate([-cut_x/2, 0.6*hole, -0.5])
             cube([cut_x, hole + border, border+1]);
     }
 }

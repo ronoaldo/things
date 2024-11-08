@@ -6,9 +6,10 @@
 1. [Boxes](#boxes)
 1. [Painting](#painting)
 1. [Organizers](#organizers)
+1. [Wall mount](#wall-mount)
 1. [Lamp diffuser](#lamp-diffuser)
 1. [Light saber](#light-saber)
-1. [Wall bracket](#wall-bracket)
+1. [Adapters](#adapters)
 
 ## Handles
 ---
@@ -84,6 +85,20 @@ View [model STL file](./organizers/organizer_90x100x140mm_nonstackable.stl)
 View [model STL file](./organizers/organizer_90x100x270mm.stl)
 
 
+## Wall mount
+---
+![./wall-mount/u-wall-mount-bracket_30x20mm(2.0mm).png](./wall-mount/u-wall-mount-bracket_30x20mm(2.0mm).png)
+View [model STL file](./wall-mount/u-wall-mount-bracket_30x20mm(2.0mm).stl)
+
+---
+![./wall-mount/wall-bracket.png](./wall-mount/wall-bracket.png)
+View [model STL file](./wall-mount/wall-bracket.stl)
+
+---
+![./wall-mount/u-wall-mount-bracket_27x20mm(3.2mm).png](./wall-mount/u-wall-mount-bracket_27x20mm(3.2mm).png)
+View [model STL file](./wall-mount/u-wall-mount-bracket_27x20mm(3.2mm).stl)
+
+
 ## Lamp diffuser
 ---
 ![./lamp-diffuser/lamp-diffuser.png](./lamp-diffuser/lamp-diffuser.png)
@@ -96,16 +111,8 @@ View [model STL file](./lamp-diffuser/lamp-diffuser.stl)
 View [model STL file](./light-saber/light-saber.stl)
 
 
-## Wall bracket
+## Adapters
 ---
-![./wall-bracket/circular-wall-bracket_30x20mm(2.0mm).png](./wall-bracket/circular-wall-bracket_30x20mm(2.0mm).png)
-View [model STL file](./wall-bracket/circular-wall-bracket_30x20mm(2.0mm).stl)
-
----
-![./wall-bracket/circular-wall-bracket_27x20mm(3.2mm).png](./wall-bracket/circular-wall-bracket_27x20mm(3.2mm).png)
-View [model STL file](./wall-bracket/circular-wall-bracket_27x20mm(3.2mm).stl)
-
----
-![./wall-bracket/wall-bracket.png](./wall-bracket/wall-bracket.png)
-View [model STL file](./wall-bracket/wall-bracket.stl)
+![./adapters/hose-adapter.png](./adapters/hose-adapter.png)
+View [model STL file](./adapters/hose-adapter.stl)
 
