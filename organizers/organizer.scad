@@ -15,6 +15,9 @@ stackable = true;
 // No handle hole
 no_handle = false;
 
+// Use decoration
+use_decoration = true;
+
 /** [Hidden] **/
 handle_height = 25;
 handle_margin = 8;
@@ -154,7 +157,9 @@ module box(width, depth, height) {
             handle(width, depth, height);
         }
         // -Decoration
-        decoration(width, depth, height);
+        if (use_decoration) {
+            decoration(width, depth, height);
+        }
     }
 }
 
