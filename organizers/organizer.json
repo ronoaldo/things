@@ -37,6 +37,15 @@
             "height": "50",
             "stackable": "false",
             "width": "90"
+        },
+        "290x110x290mm_nohandle": {
+            "depth": "290",
+            "height": "110",
+            "no_handle": "true",
+            "stackable": "true",
+            "use_decoration": "true",
+            "wall": "3",
+            "width": "290"
         }
     }
 }

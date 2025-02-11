@@ -23,8 +23,20 @@ View [model STL file](./handles/drawer-handle.stl)
 
 ## Kitchen
 ---
+![./kitchen/drawer_organizer_New.png](./kitchen/drawer_organizer_New.png)
+View [model STL file](./kitchen/drawer_organizer_New.stl)
+
+---
+![./kitchen/drawer_organizer_set.png](./kitchen/drawer_organizer_set.png)
+View [model STL file](./kitchen/drawer_organizer_set.stl)
+
+---
 ![./kitchen/sponge_holder.png](./kitchen/sponge_holder.png)
 View [model STL file](./kitchen/sponge_holder.stl)
+
+---
+![./kitchen/drawer_organizer_1.png](./kitchen/drawer_organizer_1.png)
+View [model STL file](./kitchen/drawer_organizer_1.stl)
 
 
 ## Cable runners
@@ -83,6 +95,10 @@ View [model STL file](./organizers/organizer_90x100x140mm_nonstackable.stl)
 ---
 ![./organizers/organizer_90x100x270mm.png](./organizers/organizer_90x100x270mm.png)
 View [model STL file](./organizers/organizer_90x100x270mm.stl)
+
+---
+![./organizers/organizer_290x110x290mm_nohandle.png](./organizers/organizer_290x110x290mm_nohandle.png)
+View [model STL file](./organizers/organizer_290x110x290mm_nohandle.stl)
 
 
 ## Wall mount
