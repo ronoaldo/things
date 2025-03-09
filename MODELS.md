@@ -10,6 +10,7 @@
 1. [Lamp diffuser](#lamp-diffuser)
 1. [Light saber](#light-saber)
 1. [Adapters](#adapters)
+1. [Household](#household)
 
 ## Handles
 ---
@@ -23,20 +24,12 @@ View [model STL file](./handles/drawer-handle.stl)
 
 ## Kitchen
 ---
-![./kitchen/drawer_organizer_New.png](./kitchen/drawer_organizer_New.png)
-View [model STL file](./kitchen/drawer_organizer_New.stl)
-
----
-![./kitchen/drawer_organizer_set.png](./kitchen/drawer_organizer_set.png)
-View [model STL file](./kitchen/drawer_organizer_set.stl)
-
----
 ![./kitchen/sponge_holder.png](./kitchen/sponge_holder.png)
 View [model STL file](./kitchen/sponge_holder.stl)
 
 ---
-![./kitchen/drawer_organizer_1.png](./kitchen/drawer_organizer_1.png)
-View [model STL file](./kitchen/drawer_organizer_1.stl)
+![./kitchen/drawer_organizer.png](./kitchen/drawer_organizer.png)
+View [model STL file](./kitchen/drawer_organizer.stl)
 
 
 ## Cable runners
@@ -131,4 +124,10 @@ View [model STL file](./light-saber/light-saber.stl)
 ---
 ![./adapters/hose-adapter.png](./adapters/hose-adapter.png)
 View [model STL file](./adapters/hose-adapter.stl)
+
+
+## Household
+---
+![./household/ceiling_drying_rack_clamp.png](./household/ceiling_drying_rack_clamp.png)
+View [model STL file](./household/ceiling_drying_rack_clamp.stl)
 
