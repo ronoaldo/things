@@ -17,8 +17,12 @@ function list_models_as_markdown() {
             echo "1. [${TITLE}](#${FOLDER})" >> MODELS.toc
         fi
         PNG="${STL/.stl/.png}"
+        objname="${STL##*/}"
+        objname="${objname%.stl}"
+        objname="${objname//[_-]/ }"
+        objname="$(echo "$objname" | sed -E 's/\b(.)/\U\1/g')"
 
-        echo "---"
+        echo "### ${objname}"
         echo "![$PNG]($PNG)"
         echo "View [model STL file]($STL)"
         echo

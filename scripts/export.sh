@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 set -e
+# set -x
 
-JOBS=""
 export_png() {
+	echo
     echo "Generating preview for $scad ..."
 	IN="$1"
 	OUT="${1/.scad/.png}"
@@ -11,18 +12,17 @@ export_png() {
 		export PRESET="-p $3 -P $2" OUT="${1/.scad/}_${2}.png"
 	fi
     openscad \
-        --enable sort-stl \
-        --autocenter --viewall \
+        --autocenter \
+		--viewall \
         --colorscheme Metallic \
+		--backend manifold \
         --render \
         --imgsize=1024,768 \
-		$PRESET -o "$OUT" "$IN" &
-    JOB=$!
-    echo "Job started with PID: $JOB"
-    export JOBS="$JOBS $JOB"
+		$PRESET -o "$OUT" "$IN" 
 }
 
 export_stl() {
+	echo
     echo "Generating default printable part for $scad ..."
 	IN="$1"
 	OUT="${1/.scad/.stl}"
@@ -31,14 +31,14 @@ export_stl() {
 		export PRESET="-p $3 -P $2" OUT="${1/.scad/}_${2}.stl"
 	fi
     openscad \
-        --enable sort-stl \
-		$PRESET -o "$OUT" "$IN" &
-    JOB=$!
-    echo "Job started with PID: $JOB"
-    export JOBS="$JOBS $JOB"
+		--render \
+        --enable predictible-output \
+		--backend manifold \
+		$PRESET -o "$OUT" "$IN"
 }
 
-FILES="${@:-$(find -type f -iname *.scad | grep -v third_party)}"
+echo "Exporting ..."
+FILES="${@:-$(find -type f -iname *.scad | grep -v third_party | grep -v wip)}"
 for scad in $FILES ; do
 	presets=${scad/.scad/.json}
 	if [ -f $presets ]; then
@@ -53,10 +53,4 @@ for scad in $FILES ; do
 		export_png "$scad"
 		export_stl "$scad"
 	fi
-done
-
-echo "Waiting for $JOBS ..."
-sleep 1
-for pid in $JOBS ; do
-    wait $pid || echo "$pid finished"
 done
